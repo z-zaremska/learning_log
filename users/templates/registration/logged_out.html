@@ -1,11 +1,12 @@
 {% extends 'learning_logs/base.html' %}
 
+{% block page_header %}
+    <h2>You've been succesfully logged out</h2>
+{% endblock page_header %}
+
 {% block content %}
-
-<p>Zostałeś poprawnie wylogowany.</p>
-<p>Dziękujemy za skorzystanie z serwisu.</p>
-<br>
-<a href="{% url 'learning_logs:index' %}">Powrót do strony głównej</a>
-
-
+    <p>We're so sorry you have to go. :C</p>
+    <p>Hopefully we'll see each other very soon!</p>
+    <br>
+    <a href="{% url 'learning_logs:index' %}">Return to the main page</a>
 {% endblock content %}
