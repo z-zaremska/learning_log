@@ -1,0 +1,20 @@
+{% extends 'learning_logs/base.html' %}
+
+{% block content %}
+
+{% if form.errors %}
+    <p>Formularz rejestracyjny został wypełniony niepoprawnie.</p>
+    <p>Proszę spróbować ponownie.</p>
+{% endif %}
+
+<form method="post" action="{% url 'users:register' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button name="submit">Utwórz konto</button>
+    <input type="hidden" name="next" value="{% url 'learning_logs:index' %}"/>
+
+ </form>
+
+
+{% endblock content %}
