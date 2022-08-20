@@ -15,6 +15,7 @@ class Topic(models.Model):
 class Entry(models.Model):
     """Konkretne informacje o postępie w nauce."""
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
+    title = models.CharField(max_length=500)
     text = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
 
@@ -23,7 +24,4 @@ class Entry(models.Model):
 
     def __str__(self):
         """Zwraca reprezentacje modelu w posiaci ciagu tekstowego."""
-        if len(self.text) > 50:
-            return f'{self.text[:50]}...'
-        else:
-            return self.text
+        return self.title
